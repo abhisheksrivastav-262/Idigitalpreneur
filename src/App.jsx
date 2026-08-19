@@ -5,6 +5,11 @@ import {
   Phone, MessagesSquare, ChevronRight, PlayCircle
 } from 'lucide-react';
 import VideoSlider from './components/VideoSlider';
+import c from './assets/c.png';
+import c1 from './assets/c1.png';
+import c2 from './assets/c2.png';
+import c3 from './assets/c3.png';
+import c4 from './assets/c4.png';
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -192,7 +197,7 @@ function App() {
           <div className="course-cards">
             <div className="course-card">
               <div className="course-img">
-                <img src="/src/assets/c.png" alt="Digital Skills Program" />
+                <img src={c} alt="Digital Skills Program" />
               </div>
               <div className="course-content">
                 <h3>Digital Skills Program</h3>
@@ -206,7 +211,7 @@ function App() {
             
             <div className="course-card">
               <div className="course-img">
-                <img src="/src/assets/c1.png" alt="Course Selling Program" />
+                <img src={c1} alt="Course Selling Program" />
               </div>
               <div className="course-content">
                 <h3>Course Selling Program</h3>
@@ -220,7 +225,7 @@ function App() {
             
             <div className="course-card">
               <div className="course-img">
-                <img src="/src/assets/c2.png" alt="Skill Development Program" />
+                <img src={c2} alt="Skill Development Program" />
               </div>
               <div className="course-content">
                 <h3>Skill Development Program</h3>
@@ -234,7 +239,7 @@ function App() {
 
             <div className="course-card">
               <div className="course-img">
-                <img src="/src/assets/c3.png" alt="Digital Skills Program" />
+                <img src={c3} alt="Digital Skills Program" />
               </div>
               <div className="course-content">
                 <h3>Digital Skills Program</h3>
@@ -248,7 +253,7 @@ function App() {
 
             <div className="course-card">
               <div className="course-img">
-                <img src="/src/assets/c4.png" alt="Course Selling Program" />
+                <img src={c4} alt="Course Selling Program" />
               </div>
               <div className="course-content">
                 <h3>Course Selling Program</h3>
