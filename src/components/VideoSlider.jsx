@@ -5,8 +5,10 @@ import a1 from '../assets/a1.mp4';
 import a2 from '../assets/a2.mp4';
 import a3 from '../assets/a3.mp4';
 import a4 from '../assets/a4.mp4';
+import n from '../assets/n.mp4';
+import n1 from '../assets/n1.mp4';
 
-const videos = [a, a1, a2, a3, a4];
+const videos = [a, a1, a2, a3, a4, n, n1];
 
 const VideoSlider = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -84,12 +86,10 @@ const VideoSlider = () => {
   const offset = 50 - (slideWidth / 2) - (currentIndex * slideWidth);
 
   return (
-    <section className="overview-section" id="overview" ref={sectionRef}>
-      <div className="container">
-        <div className="section-title">
-          <h2>Overview</h2>
-          <p>Explore our premium video content and get a deeper look.</p>
-        </div>
+    <div className="overview-section" id="overview" ref={sectionRef}>
+      <div className="section-title" style={{ textAlign: 'left', marginBottom: '1.5rem' }}>
+        <h2>Overview</h2>
+        <p style={{ margin: 0 }}>Explore our premium video content and get a deeper look.</p>
       </div>
       
       <div 
@@ -131,6 +131,7 @@ const VideoSlider = () => {
                   playsInline
                   preload="metadata"
                   onPlay={() => handlePlay(idx)}
+                  onClick={(e) => e.stopPropagation()}
                 ></video>
               </div>
             </div>
@@ -148,7 +149,7 @@ const VideoSlider = () => {
           ))}
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 

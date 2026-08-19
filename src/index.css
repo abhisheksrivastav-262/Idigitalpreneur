@@ -620,10 +620,30 @@ footer {
 }
 
 /* Overview Section & Video Slider */
-.overview-section {
+.overview-enquiry-section {
   background: var(--light);
+  padding: 6rem 0;
   overflow-x: hidden;
-  padding-bottom: 4rem;
+}
+
+.split-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+@media (max-width: 992px) {
+  .split-layout {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+}
+
+.overview-section {
+  background: transparent;
+  overflow-x: hidden;
+  padding-bottom: 0;
 }
 
 .slider-container {

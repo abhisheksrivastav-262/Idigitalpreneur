@@ -260,8 +260,63 @@ function App() {
         </div>
       </section>
 
-      {/* Video Overview Section */}
-      <VideoSlider />
+      {/* Combined Overview and Enquiry Section */}
+      <section id="overview-enquiry" className="overview-enquiry-section">
+        <div className="container">
+          <div className="split-layout">
+            
+            {/* Left Side: Video Slider */}
+            <div className="split-left">
+              <VideoSlider />
+            </div>
+
+            {/* Right Side: Enquiry Form */}
+            <div className="split-right">
+              <div id="enquiry" className="enquiry-form-container">
+                <div className="section-title" style={{ textAlign: 'left', marginBottom: '1.5rem' }}>
+                  <h2>Start Your Journey</h2>
+                  <p style={{ margin: 0 }}>Fill out the form below and our team will get back to you shortly.</p>
+                </div>
+                <div className="contact-container" style={{ padding: '2.5rem', margin: '0', background: 'white', borderRadius: '20px', boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.05)', border: '1px solid #f1f5f9', maxWidth: '100%' }}>
+                  <form onSubmit={handleEnquirySubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem', textAlign: 'left' }}>
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1.5rem' }}>
+                      <div>
+                        <label style={{ display: 'block', marginBottom: '0.5rem', fontWeight: '600', color: 'var(--dark)' }}>Full Name *</label>
+                        <input type="text" required style={{ width: '100%', padding: '0.8rem 1rem', borderRadius: '10px', border: '1px solid #e2e8f0', fontSize: '1rem', boxSizing: 'border-box' }} placeholder="John Doe" value={formData.name} onChange={e => setFormData({...formData, name: e.target.value})} />
+                      </div>
+                      <div>
+                        <label style={{ display: 'block', marginBottom: '0.5rem', fontWeight: '600', color: 'var(--dark)' }}>Mobile Number *</label>
+                        <input type="tel" required style={{ width: '100%', padding: '0.8rem 1rem', borderRadius: '10px', border: '1px solid #e2e8f0', fontSize: '1rem', boxSizing: 'border-box' }} placeholder="Your Phone Number" value={formData.mobile} onChange={e => setFormData({...formData, mobile: e.target.value})} />
+                      </div>
+                    </div>
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1.5rem' }}>
+                      <div>
+                        <label style={{ display: 'block', marginBottom: '0.5rem', fontWeight: '600', color: 'var(--dark)' }}>Email Address</label>
+                        <input type="email" style={{ width: '100%', padding: '0.8rem 1rem', borderRadius: '10px', border: '1px solid #e2e8f0', fontSize: '1rem', boxSizing: 'border-box' }} placeholder="john@example.com" value={formData.email} onChange={e => setFormData({...formData, email: e.target.value})} />
+                      </div>
+                      <div>
+                        <label style={{ display: 'block', marginBottom: '0.5rem', fontWeight: '600', color: 'var(--dark)' }}>Select Course *</label>
+                        <select required style={{ width: '100%', padding: '0.8rem 1rem', borderRadius: '10px', border: '1px solid #e2e8f0', fontSize: '1rem', background: 'white', boxSizing: 'border-box' }} value={selectedCourse} onChange={e => setSelectedCourse(e.target.value)}>
+                          <option value="" disabled>Select a program</option>
+                          <option value="Digital Skills Program">Digital Skills Program</option>
+                          <option value="Course Selling Program">Course Selling Program</option>
+                          <option value="Skill Development Program">Skill Development Program</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div>
+                      <label style={{ display: 'block', marginBottom: '0.5rem', fontWeight: '600', color: 'var(--dark)' }}>Message (Optional)</label>
+                      <textarea rows="4" style={{ width: '100%', padding: '0.8rem 1rem', borderRadius: '10px', border: '1px solid #e2e8f0', fontSize: '1rem', resize: 'vertical', boxSizing: 'border-box' }} placeholder="Any questions or specific requirements?" value={formData.message} onChange={e => setFormData({...formData, message: e.target.value})}></textarea>
+                    </div>
+                    <button type="submit" className="btn btn-primary" style={{ width: '100%', fontSize: '1.1rem', padding: '1rem', borderRadius: '10px', marginTop: '0.5rem' }}>Submit Enquiry</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
 
       {/* Why Choose Us */}
       <section className="why-choose" style={{ background: 'white' }}>
@@ -293,49 +348,6 @@ function App() {
         </div>
       </section>
 
-      {/* Enquiry Form Section */}
-      <section id="enquiry" style={{ background: 'white' }}>
-        <div className="container">
-          <div className="section-title">
-            <h2>Start Your Journey</h2>
-            <p>Fill out the form below and our team will get back to you shortly.</p>
-          </div>
-          <div className="contact-container" style={{ maxWidth: '750px', padding: '3rem', margin: '0 auto', background: 'white', borderRadius: '20px', boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.05)', border: '1px solid #f1f5f9' }}>
-            <form onSubmit={handleEnquirySubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem', textAlign: 'left' }}>
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '1.5rem' }}>
-                <div>
-                  <label style={{ display: 'block', marginBottom: '0.5rem', fontWeight: '600', color: 'var(--dark)' }}>Full Name *</label>
-                  <input type="text" required style={{ width: '100%', padding: '0.8rem 1rem', borderRadius: '10px', border: '1px solid #e2e8f0', fontSize: '1rem', boxSizing: 'border-box' }} placeholder="John Doe" value={formData.name} onChange={e => setFormData({...formData, name: e.target.value})} />
-                </div>
-                <div>
-                  <label style={{ display: 'block', marginBottom: '0.5rem', fontWeight: '600', color: 'var(--dark)' }}>Mobile Number *</label>
-                  <input type="tel" required style={{ width: '100%', padding: '0.8rem 1rem', borderRadius: '10px', border: '1px solid #e2e8f0', fontSize: '1rem', boxSizing: 'border-box' }} placeholder="Your Phone Number" value={formData.mobile} onChange={e => setFormData({...formData, mobile: e.target.value})} />
-                </div>
-              </div>
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '1.5rem' }}>
-                <div>
-                  <label style={{ display: 'block', marginBottom: '0.5rem', fontWeight: '600', color: 'var(--dark)' }}>Email Address</label>
-                  <input type="email" style={{ width: '100%', padding: '0.8rem 1rem', borderRadius: '10px', border: '1px solid #e2e8f0', fontSize: '1rem', boxSizing: 'border-box' }} placeholder="john@example.com" value={formData.email} onChange={e => setFormData({...formData, email: e.target.value})} />
-                </div>
-                <div>
-                  <label style={{ display: 'block', marginBottom: '0.5rem', fontWeight: '600', color: 'var(--dark)' }}>Select Course *</label>
-                  <select required style={{ width: '100%', padding: '0.8rem 1rem', borderRadius: '10px', border: '1px solid #e2e8f0', fontSize: '1rem', background: 'white', boxSizing: 'border-box' }} value={selectedCourse} onChange={e => setSelectedCourse(e.target.value)}>
-                    <option value="" disabled>Select a program</option>
-                    <option value="Digital Skills Program">Digital Skills Program</option>
-                    <option value="Course Selling Program">Course Selling Program</option>
-                    <option value="Skill Development Program">Skill Development Program</option>
-                  </select>
-                </div>
-              </div>
-              <div>
-                <label style={{ display: 'block', marginBottom: '0.5rem', fontWeight: '600', color: 'var(--dark)' }}>Message (Optional)</label>
-                <textarea rows="4" style={{ width: '100%', padding: '0.8rem 1rem', borderRadius: '10px', border: '1px solid #e2e8f0', fontSize: '1rem', resize: 'vertical', boxSizing: 'border-box' }} placeholder="Any questions or specific requirements?" value={formData.message} onChange={e => setFormData({...formData, message: e.target.value})}></textarea>
-              </div>
-              <button type="submit" className="btn btn-primary" style={{ width: '100%', fontSize: '1.1rem', padding: '1rem', borderRadius: '10px', marginTop: '0.5rem' }}>Submit Enquiry</button>
-            </form>
-          </div>
-        </div>
-      </section>
 
       {/* Contact Section */}
       <section id="contact" style={{ background: 'var(--light)' }}>
