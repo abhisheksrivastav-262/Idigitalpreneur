@@ -12,7 +12,6 @@ const videos = [a, a1, a2, a3, a4, n, n1];
 
 const VideoSlider = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [isPaused, setIsPaused] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const videoRefs = useRef([]);
   const sectionRef = useRef(null);
@@ -45,15 +44,7 @@ const VideoSlider = () => {
     handleSlideChange((currentIndex - 1 + videos.length) % videos.length);
   };
 
-  useEffect(() => {
-    if (isPaused) return;
-    
-    const interval = setInterval(() => {
-      nextSlide();
-    }, 5000); // 5 seconds exact
-    
-    return () => clearInterval(interval);
-  }, [isPaused, currentIndex]);
+
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -92,14 +83,7 @@ const VideoSlider = () => {
         <p style={{ margin: 0 }}>Explore our premium video content and get a deeper look.</p>
       </div>
       
-      <div 
-        className="slider-container"
-        onMouseEnter={() => setIsPaused(true)}
-        onMouseLeave={() => setIsPaused(false)}
-        onTouchStart={() => setIsPaused(true)}
-        onTouchEnd={() => setIsPaused(false)}
-        onTouchCancel={() => setIsPaused(false)}
-      >
+      <div className="slider-container">
         <button className="slider-arrow prev-arrow" onClick={prevSlide} aria-label="Previous Video">
           <ChevronLeft size={32} />
         </button>
